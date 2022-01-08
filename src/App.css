@@ -13,7 +13,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 40s linear;
+    animation: App-logo-spin infinite 3s linear;
   }
 }
 
@@ -24,4 +24,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  padding: 6rem 4rem;
 }
