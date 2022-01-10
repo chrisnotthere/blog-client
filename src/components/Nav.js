@@ -9,11 +9,11 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 function Nav() {
   return (
-    <div>
+    <nav>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton
+            <IconButton onClick={() => window.location.replace('/')}
               size="large"
               edge="start"
               color="inherit"
@@ -22,14 +22,14 @@ function Nav() {
             >
               <TravelExploreIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography onClick={() => window.location.replace('/')} variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Blog Client
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
-    </div>
+    </nav>
   )
 }
 

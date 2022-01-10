@@ -29,7 +29,6 @@ function Home() {
 
   return (
     <div className="container">
-      <p>I am the home component, hello</p>
       {isLoading ? (
         <>
           <h1>Loading...</h1>
@@ -43,10 +42,10 @@ function Home() {
 
           {data.map((post) => (
             <>
-              <Grid item xs={4}>
+              <Grid item xs={3}>
 
                 <Card sx={{ maxWidth: 400 }}>
-                  <CardActionArea href="#">
+                  <CardActionArea href="/blog">
                     <CardContent>
                       <CardMedia
                         component="img"
@@ -57,10 +56,10 @@ function Home() {
                       <Typography gutterBottom variant="h5" component="div">
                         {post.title}
                       </Typography>
-                      <Typography gutterBottom variant="h5" component="div">
-                        published by {post.author}
+                      <Typography gutterBottom variant="h6" component="div">
+                        author {post.author}
                       </Typography>
-                      <Typography gutterBottom variant="h5" component="div">
+                      <Typography gutterBottom variant="h6" component="div">
                         {post.date}
                       </Typography>
                     </CardContent>
