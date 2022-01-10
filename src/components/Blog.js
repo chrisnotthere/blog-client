@@ -7,6 +7,7 @@ function Blog() {
   const [data, setData] = React.useState([]);
   const [username, setUsername] = React.useState('');
   const [content, setContent] = React.useState('');
+  const [commented, setCommented] = React.useState('');
 
   let { id } = useParams();
 
@@ -15,9 +16,12 @@ function Blog() {
     const url = `https://limitless-peak-99704.herokuapp.com/blog/${id}`;
     fetch(url, { mode: 'cors' })
       .then((response) => response.json())
-      .then((json) => setData(json['result']))
+      .then((json) => {
+        setData(json['result']);
+        setCommented('');
+        })
       .catch((error) => console.log(error));
-  }, [data]);
+  }, [commented]);
 
   React.useEffect(() => {
     if (data.length !== 0) {
@@ -37,6 +41,7 @@ function Blog() {
       console.log('comment added');
       setUsername('');
       setContent('');
+      setCommented('this is set so the page shows a new comment immediately');
     })
   }
 
@@ -80,11 +85,12 @@ function Blog() {
 
           <h3>comments({data.comments.length})</h3>
           {data.comments.map(comment => (
-            <>
+            <div key={comment._id}>
+              <p>username: <b>{comment.username}</b></p>
               <p>{comment.content}</p>
-              <p>{comment.username}</p>
-              <p>{comment.date}</p>
-            </>
+              <i>posted: {comment.date}</i>
+              <hr/>
+            </div>
           ))}
         </div>
       )}
