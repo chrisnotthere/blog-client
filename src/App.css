@@ -29,3 +29,8 @@
 .container {
   padding: 6rem 15vw;
 }
+
+.card {
+  background-color: rgb(202, 218, 215);
+  color: black;
+}
