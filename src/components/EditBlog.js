@@ -18,19 +18,15 @@ function EditBlog() {
       .then((response) => response.json())
       .then((json) => {
         setData(json['result']);
-        //setTitle(data.title);
-        //setContent(data.content);
-        //setImg(data.img);
-        //console.log('data: ', typeof(data), data);
-        //console.log(data.title);        
+        setTitle(data.title);
+        setContent(data.content);
+        setImg(data.img);       
       })
       .catch((error) => console.log(error));
   }, [id]);
 
   //submit request to edit/update the blog
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // console.log('Submit');
     e.preventDefault();
     const postBlog = { title, content, img };
     const url = `https://limitless-peak-99704.herokuapp.com/admin/edit/${id}`;
@@ -46,7 +42,23 @@ function EditBlog() {
       console.log('Blog updated!!');
       navigate(`/blog/${id}`);
     })
+  }
 
+  //submit request to delete blog
+  const handleDelete = (e) => {
+    console.log('DELETE IT!!!!!!');
+    const url = `https://limitless-peak-99704.herokuapp.com/admin/delete/${id}`;
+    fetch(url, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: { 
+        "Content-Type": "application/json", 
+        'Authorization': `${token}` 
+      }
+    }).then(() => {
+      console.log('Blog deleted!!');
+      navigate(`/admin/dashboard`);
+    })
   }
 
   return (
@@ -81,8 +93,10 @@ function EditBlog() {
             onChange={(e) => setImg(e.target.value)}
           />
         </div>
-        <button type='submit' className='mui-btn mui-btn--raised'>Submit</button>
+        <button type='submit' className='mui-btn mui-btn--raised'>Submit Changes</button>
       </form>
+      <button style={{backgroundColor:'crimson'}}type='button' className='mui-btn mui-btn--raised' onClick={handleDelete}>Delete blog!</button>
+
     </div>
   )
 }
