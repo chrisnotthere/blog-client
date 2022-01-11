@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function Admin() {
-  //const [data, setData] = React.useState('');
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,15 +13,19 @@ function Admin() {
     console.log(loginCredentials);
     const url = `https://limitless-peak-99704.herokuapp.com/admin/login`;
     fetch(url, {
-      //mode: 'cors',
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginCredentials)
     })
       .then((response) => response.json())
       .then((json) => {
-        //setData(json);
         console.log('response', json)
+        if (json.message === 'Auth Passed'){
+          //save to token to local storage
+          localStorage.setItem("SavedToken", 'Bearer ' + json.token);
+          //setResponse(json);
+          navigate("/admin/dashboard");
+        } 
       })
       .then(() => {
         setUsername('');
@@ -57,4 +63,4 @@ function Admin() {
   )
 }
 
-export default Admin
+export default Admin;

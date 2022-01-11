@@ -8,6 +8,8 @@ import logo from '../../src/logo.svg';
 import { Link } from 'react-router-dom';
 
 function Home() {
+  //const token = localStorage.getItem('SavedToken')
+  //console.log('token: ', token);
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
 

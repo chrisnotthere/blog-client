@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 function Nav() {
+  const token = localStorage.getItem('SavedToken')
+
   return (
     <nav>
       <Box sx={{ flexGrow: 1 }}>
@@ -25,7 +27,10 @@ function Nav() {
             <Typography onClick={() => window.location.replace('/')} variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Blog Client
             </Typography>
-            <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
+            {token 
+              ? <Button onClick={() => window.location.replace('/admin/dashboard')} color="inherit">Admin</Button>
+              : <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
+            }
           </Toolbar>
         </AppBar>
       </Box>

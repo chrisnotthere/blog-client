@@ -3,6 +3,8 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import Blog from './components/Blog';
 import Admin from './components/Admin';
+import AdminDashboard from './components/AdminDashboard';
+import CreateBlog from './components/CreateBlog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blog/:id" element={<Blog />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/create" element={<CreateBlog />} />
         </Routes>
       </div>
     </Router>

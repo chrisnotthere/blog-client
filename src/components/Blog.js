@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import logo from '../../src/logo.svg';
 import { useParams } from 'react-router-dom';
