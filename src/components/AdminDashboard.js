@@ -59,7 +59,7 @@ function AdminDashboard() {
             <div key={post._id}>
               <Grid item xs={11}>
                 <Card sx={{ maxWidth: 450 }}>
-                  <Link to={`/blog/${post._id}`}>
+                  <Link to={`/admin/edit/${post._id}`}>
                     <CardContent className='card'>
                       <CardMedia
                         component="img"

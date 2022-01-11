@@ -5,6 +5,7 @@ import Blog from './components/Blog';
 import Admin from './components/Admin';
 import AdminDashboard from './components/AdminDashboard';
 import CreateBlog from './components/CreateBlog';
+import EditBlog from './components/EditBlog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/create" element={<CreateBlog />} />
+          <Route path="/admin/edit/:id" element={<EditBlog />} />
         </Routes>
       </div>
     </Router>
