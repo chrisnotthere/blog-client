@@ -64,7 +64,7 @@ function AdminDashboard() {
                       <CardMedia
                         component="img"
                         height="150"
-                        image={post.img}
+                        image={`../../images/${post.img}`}
                         alt={post.img}
                       />
                       <Typography gutterBottom variant="h5" component="div">
