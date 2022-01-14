@@ -51,38 +51,17 @@ function AdminDashboard() {
           <img src={logo} className="App-logo" alt="logo" />
         </>
       ) : (
-        <Grid container spacing={2}
-          direction="row"
-          justifyContent="center"
-          alignItems="center">
+        <div className='cardGrid'>
           {data.map((post) => (
-            <div key={post._id}>
-              <Grid item xs={11}>
-                <Card sx={{ maxWidth: 450 }}>
-                  <Link to={`/admin/edit/${post._id}`}>
-                    <CardContent className='card'>
-                      <CardMedia
-                        component="img"
-                        height="150"
-                        image={`../../images/${post.img}`}
-                        alt={post.img}
-                      />
-                      <Typography gutterBottom variant="h5" component="div">
-                        {post.title}
-                      </Typography>
-                      <Typography gutterBottom variant="h6" component="div">
-                        author {post.author}
-                      </Typography>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {post.date}
-                      </Typography>
-                    </CardContent>
-                  </Link>
-                </Card>
-              </Grid>
-            </div>
+            <Link to={`/admin/edit/${post._id}`}>
+              <div key={post._id} className='blogCard'>
+                <img src={`../../images/${post.img}`} alt={post.title}></img>
+                <h2>{post.title}</h2>
+                <p>published by {post.author}</p>
+              </div>
+            </Link>
           ))}
-        </Grid>
+        </div>
       )}
     </div>
   )
