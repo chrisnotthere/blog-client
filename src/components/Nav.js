@@ -24,9 +24,10 @@ function Nav() {
             >
               <TravelExploreIcon />
             </IconButton>
-            <Typography onClick={() => window.location.replace('/')} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Blog Client
-            </Typography>
+            <Button onClick={() => window.open('https://chrisnotthere.github.io/portfolio',"_self")} color="inherit">Back to Portfolio</Button>
+            {/* <Typography onClick={() => window.location.replace('/')} variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Blog
+            </Typography> */}
             {token 
               ? <Button onClick={() => window.location.replace('/admin/dashboard')} color="inherit">Admin</Button>
               : <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>

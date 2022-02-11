@@ -31,12 +31,13 @@ function Home() {
 
   return (
     <div className="container">
-      {isLoading ? (
+      <h1>Coming Soon...</h1>
+      {/* {isLoading ? (
         <>
           <h1>Loading...</h1>
           <img src={logo} className="App-logo" alt="logo" />
         </>
-      ) : (
+      ) : ( */}
         <div className='cardGrid'>
           {data.map((post) => (
             <Link to={`/blog/${post._id}`}>
@@ -48,7 +49,7 @@ function Home() {
             </Link>
           ))}
         </div>
-      )}
+      {/* )} */}
     </div>
   )
 }
