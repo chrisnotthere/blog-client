@@ -10,12 +10,18 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 function Nav() {
   const token = localStorage.getItem('SavedToken')
 
+  const handleLogout = () => {
+    console.log('logout');
+    localStorage.removeItem("SavedToken");
+    window.location.replace('/');
+  }
+
   return (
     <nav>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton onClick={() => window.open('https://chrisnotthere.github.io/blog-client/',"_self")}
+            <IconButton onClick={() => window.location.replace('/')}
               size="large"
               edge="start"
               color="inherit"
@@ -24,13 +30,13 @@ function Nav() {
             >
               <TravelExploreIcon />
             </IconButton>
-            <Button onClick={() => window.open('https://chrisnotthere.github.io/portfolio',"_self")} color="inherit">Back to Portfolio</Button>
-            {/* <Typography onClick={() => window.location.replace('/')} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Blog
-            </Typography> */}
-            {token 
-              ? <Button onClick={() => window.open('https://chrisnotthere.github.io/blog-client/admin/dashboard',"_self")} color="inherit">Admin</Button>
-              : <Button onClick={() => window.open('https://chrisnotthere.github.io/blog-client/admin',"_self")} color="inherit">Login</Button>
+            <Button onClick={() => window.open('https://chrisnotthere.github.io/portfolio', "_self")} color="inherit">Back to Portfolio</Button>
+            {token
+              ? <>
+                <Button onClick={() => window.location.replace('/admin/dashboard')} color="inherit">Admin</Button>
+                <Button onClick={handleLogout} color="inherit">Log Out</Button>
+              </>
+              : <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
             }
           </Toolbar>
         </AppBar>

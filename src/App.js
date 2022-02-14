@@ -14,12 +14,12 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/" component={<Home />} />
-          <Route path="/blog/:id" component={<Blog />} />
-          <Route path="/admin" component={<Admin />} />
-          <Route path="/admin/dashboard" component={<AdminDashboard />} />
-          <Route path="/admin/create" component={<CreateBlog />} />
-          <Route path="/admin/edit/:id" component={<EditBlog />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/blog/:id" element={<Blog />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/create" element={<CreateBlog />} />
+          <Route path="/admin/edit/:id" element={<EditBlog />} />
         </Routes>
       </div>
     </Router>

@@ -57,8 +57,8 @@ function Blog() {
         <div key={data._id}>
           <h1>{data.title}</h1>
           <p>{data.content}</p>
-          <p>by: {data.author}</p>
-          <p>{data.date}</p>
+          {/* <p>by: {data.author}</p> */}
+          <p>Posted: {data.date}</p>
           <hr></hr>
 
           <form onSubmit={handleSubmit}>
@@ -87,7 +87,7 @@ function Blog() {
           <h3>comments({data.comments.length})</h3>
           {data.comments.map(comment => (
             <div key={comment._id}>
-              <p>username: <b>{comment.username}</b></p>
+              <p><b>{comment.username}</b></p>
               <p>{comment.content}</p>
               <i>posted: {comment.date}</i>
               <hr/>

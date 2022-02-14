@@ -40,10 +40,11 @@ function AdminDashboard() {
 
   return (
     <div className='container'>
-      <h2>welcome to the admin dashboard.</h2>
+      <h2>Admin Dashboard</h2>
+      <p>You are logged in as an admin.You may create, read, update, and delete blogs.</p>
       <Button style={{ backgroundColor: 'green' }} onClick={() => window.location.replace('/admin/create')} color="inherit">Create new blog</Button>
       <hr/>
-      <p>or, select blog from below to edit</p>
+      <p>Current blogs</p>
       <hr/>
       {isLoading ? (
         <>

@@ -10,7 +10,7 @@ function Admin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const loginCredentials = { username, password };
-    console.log(loginCredentials);
+    // console.log(loginCredentials);
     const url = `https://limitless-peak-99704.herokuapp.com/admin/login`;
     fetch(url, {
       method: 'POST',
