@@ -1,2 +1,1 @@
-# Getting Started with Create React App
-
+[Live](https://chrisnotthere.github.io/blog-client/)
