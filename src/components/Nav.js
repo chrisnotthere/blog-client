@@ -21,7 +21,8 @@ function Nav() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton onClick={() => window.location.replace('/')}
+            {/* <IconButton onClick={() => window.location.replace('/')} */}
+            <IconButton onClick={() => window.location.replace('/blog-client')}
               size="large"
               edge="start"
               color="inherit"
@@ -33,10 +34,13 @@ function Nav() {
             <Button onClick={() => window.open('https://chrisnotthere.github.io/portfolio', "_self")} color="inherit">Back to Portfolio</Button>
             {token
               ? <>
-                <Button onClick={() => window.location.replace('/admin/dashboard')} color="inherit">Admin</Button>
+                {/* <Button onClick={() => window.location.replace('/admin/dashboard')} color="inherit">Admin</Button> */}
+                <Button onClick={() => window.location.replace('/blog-client/admin/dashboard')} color="inherit">Admin</Button>
                 <Button onClick={handleLogout} color="inherit">Log Out</Button>
               </>
-              : <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
+              // : <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
+              : <Button onClick={() => window.location.replace('/blog-client/admin')} color="inherit">Login</Button>
+
             }
           </Toolbar>
         </AppBar>
