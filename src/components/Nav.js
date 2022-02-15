@@ -2,7 +2,6 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
@@ -23,7 +22,6 @@ function Nav() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed">
           <Toolbar>
-            {/* <IconButton onClick={() => window.location.replace('/')} */}
             <IconButton onClick={() => window.location.replace('/blog-client')}
               size="large"
               edge="start"
@@ -39,12 +37,9 @@ function Nav() {
                 <Link to='/blog-client/admin/dashboard'>
                   <Button color="inherit">Admin</Button>
                 </Link>
-                {/* <Button onClick={() => window.location.replace('/admin/dashboard')} color="inherit">Admin</Button> */}
-                {/* <Button onClick={() => window.location.replace('/blog-client/admin/dashboard')} color="inherit">Admin</Button> */}
                 <Button onClick={handleLogout} color="inherit">Log Out</Button>
               </>
-              // : <Button onClick={() => window.location.replace('/admin')} color="inherit">Login</Button>
-              : //<Button onClick={() => window.location.replace('/blog-client/admin')} color="inherit">Login</Button>
+              :
               <Link to='/blog-client/admin'>
                 <Button color="inherit">Admin</Button>
               </Link>

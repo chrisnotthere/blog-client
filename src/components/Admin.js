@@ -1,17 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Admin() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const navigate = useNavigate()
-  const [error, setError] = React.useState('');
+  // const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const loginCredentials = { username, password };
-    // console.log(loginCredentials);
     const url = `https://limitless-peak-99704.herokuapp.com/admin/login`;
     fetch(url, {
       method: 'POST',
@@ -21,12 +19,10 @@ function Admin() {
       .then((response) => response.json())
       .then((json) => {
         console.log('response', json);
-        setError(json);
         if (json.message === 'Auth Passed'){
           //save to token to local storage
           localStorage.setItem("SavedToken", 'Bearer ' + json.token);
-          //setResponse(json);
-          navigate("/blog-client/admin/dashboard");
+          Navigate("/blog-client/admin/dashboard");
         } 
       })
       .then(() => {
@@ -60,7 +56,6 @@ function Admin() {
           />
         </div>
         <button type='submit' className='mui-btn mui-btn--raised'>Submit</button>
-        <p style={{color: 'red'}}>{error}</p>
       </form>
     </div>
   )

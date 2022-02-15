@@ -54,11 +54,11 @@ function AdminDashboard() {
       ) : (
         <div className='cardGrid'>
           {data.map((post) => (
-            <Link to={`/admin/edit/${post._id}`}>
+            <Link to={`/blog-client/admin/edit/${post._id}`}>
               <div key={post._id} className='blogCard'>
                 <img src={`../../images/${post.img}`} alt={post.title}></img>
                 <h2>{post.title}</h2>
-                <p>published by {post.author}</p>
+                <p>Posted: {post.date}</p>
               </div>
             </Link>
           ))}
