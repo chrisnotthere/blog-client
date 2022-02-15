@@ -6,6 +6,7 @@ function Admin() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigate = useNavigate()
+  const [error, setError] = React.useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,12 +20,13 @@ function Admin() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('response', json)
+        console.log('response', json);
+        setError(json);
         if (json.message === 'Auth Passed'){
           //save to token to local storage
           localStorage.setItem("SavedToken", 'Bearer ' + json.token);
           //setResponse(json);
-          navigate("/admin/dashboard");
+          navigate("/blog-client/admin/dashboard");
         } 
       })
       .then(() => {
@@ -58,6 +60,7 @@ function Admin() {
           />
         </div>
         <button type='submit' className='mui-btn mui-btn--raised'>Submit</button>
+        <p style={{color: 'red'}}>{error}</p>
       </form>
     </div>
   )

@@ -41,7 +41,7 @@ function Home() {
       ) : (
         <div className='cardGrid'>
           {data.map((post) => (
-            <Link to={`/blog/${post._id}`}>
+            <Link to={`/blog-client/blog/${post._id}`}>
               <div key={post._id} className='blogCard'>
                 <img src={`../../images/${post.img}`} alt={post.title}></img>
                 <h2>{post.title}</h2>

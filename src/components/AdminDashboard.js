@@ -18,7 +18,7 @@ function AdminDashboard() {
     console.log(`${token}`);
     const url = `https://limitless-peak-99704.herokuapp.com/admin/`;
     fetch(url, {
-      //mode: 'no-cors',
+      mode: 'cors',
       credentials: 'include',
       method: 'GET',
       headers: { 'Authorization': `${token}` },
@@ -42,7 +42,7 @@ function AdminDashboard() {
     <div className='container'>
       <h2>Admin Dashboard</h2>
       <p>You are logged in as an admin.You may create, read, update, and delete blogs.</p>
-      <Button style={{ backgroundColor: 'green' }} onClick={() => window.location.replace('/admin/create')} color="inherit">Create new blog</Button>
+      <Button style={{ backgroundColor: 'green' }} onClick={() => window.location.replace('/blog-client/admin/create')} color="inherit">Create new blog</Button>
       <hr/>
       <p>Current blogs</p>
       <hr/>
