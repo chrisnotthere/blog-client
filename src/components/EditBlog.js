@@ -49,7 +49,6 @@ function EditBlog() {
 
   //submit request to delete blog
   const handleDelete = (e) => {
-    console.log('DELETE IT!!!!!!');
     const url = `https://limitless-peak-99704.herokuapp.com/admin/delete/${id}`;
     fetch(url, {
       method: 'DELETE',
@@ -65,7 +64,6 @@ function EditBlog() {
   }
 
   const handleDeleteComment = (commentid) => {
-    console.log(commentid)
     setDeletedComment('this is set so the page shows a comment delete immediately')
     const url = `https://limitless-peak-99704.herokuapp.com/admin/comment/${id}/${commentid}`;
     fetch(url, {

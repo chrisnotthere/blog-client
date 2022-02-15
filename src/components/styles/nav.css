@@ -1,13 +1,5 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  height: 4rem;
 }
-
-.nav-left {
-
-}
-
-.nav-right {
-
-}
-

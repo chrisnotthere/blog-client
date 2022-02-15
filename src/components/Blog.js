@@ -2,6 +2,7 @@
 import React from 'react'
 import logo from '../../src/logo.svg';
 import { useParams } from 'react-router-dom';
+import './styles/blog.css'
 
 function Blog() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -57,43 +58,48 @@ function Blog() {
         </>
       ) : (
         <div key={data._id}>
-          <h1>{data.title}</h1>
-          <p>{data.content}</p>
-          <p>Posted: {data.date}</p>
-          <hr></hr>
+          <div className='blog-wrapper'>
+            <h1 className='blog-title'>{data.title}</h1>
+            <p className='blog-content'>{data.content}</p>
+            <p>{moment(data.date).format("MMMM Do YYYY")}</p>
+          </div>
 
-          <form onSubmit={handleSubmit}>
-            <legend>Add a comment</legend>
-            <div className='mui-textfield'>
-              <input
-                type='text'
-                required
-                placeholder='Username'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div className='mui-textfield'>
-              <input
-                type='textArea'
-                placeholder='Comment'
-                required
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
-            </div>
-            <button type='submit' className='mui-btn mui-btn--raised'>Submit</button>
-          </form>
+          <hr/>
 
-          <h3>comments({data.comments.length})</h3>
-          {data.comments.map(comment => (
-            <div key={comment._id}>
-              <p><b>{comment.username}</b></p>
-              <p>{comment.content}</p>
-              <i>posted: {moment(comment.date).format("MMM Do YYYY")}</i>
-              <hr />
-            </div>
-          ))}
+          <div className='comments-wrapper'>
+            <form onSubmit={handleSubmit}>
+              <legend>Add a comment</legend>
+              <div className='mui-textfield'>
+                <input
+                  type='text'
+                  required
+                  placeholder='Username'
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className='mui-textfield'>
+                <input
+                  type='textArea'
+                  placeholder='Comment'
+                  required
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                />
+              </div>
+              <button type='submit' className='mui-btn mui-btn--raised'>Submit</button>
+            </form>
+
+            <h3>Comments ({data.comments.length})</h3>
+            {data.comments.map(comment => (
+              <div key={comment._id}>
+                <p><b>{comment.username}</b></p>
+                <p>{comment.content}</p>
+                <i>{moment(comment.date).format("MMM Do YYYY")}</i>
+                <hr />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

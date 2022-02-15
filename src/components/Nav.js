@@ -15,7 +15,6 @@ function Nav() {
     console.log('logout');
     localStorage.removeItem("SavedToken");
     window.location.replace('/blog-client');
-    // Navigate("/blog-client");
   }
 
   return (
@@ -30,12 +29,11 @@ function Nav() {
                 edge="start"
                 color="inherit"
                 aria-label="menu"
-                // sx={{ mr: 1 }}
               >
                 <TravelExploreIcon />
               </IconButton>
 
-              <Button onClick={() => window.open('https://chrisnotthere.github.io/portfolio', "_self")} color="inherit">Back to Portfolio</Button>
+              <Button onClick={() => window.open('https://chrisnotthere.github.io/portfolio', "_self")} color="inherit">Portfolio</Button>
             </div>
 
             <div className='nav-right'>

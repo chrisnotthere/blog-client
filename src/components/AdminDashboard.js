@@ -56,8 +56,8 @@ function AdminDashboard() {
             <Link to={`/blog-client/admin/edit/${post._id}`} key={post._id} >
               <div className='blogCard'>
                 <img src={post.img} alt={post.title}></img>
-                <h2>{post.title}</h2>
-                <p>Posted: {moment(post.date).format("MMM Do YYYY")}</p>
+                <h2 className='post-title' >{post.title}</h2>
+                <p>{moment(post.date).format("MMM Do YYYY")}</p>
               </div>
             </Link>
           ))}

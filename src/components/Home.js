@@ -26,8 +26,13 @@ function Home() {
 
   return (
     <div className="container">
-      <h2>Hello and welcome to my blog!</h2>
-      <p>Check back later for more blogs.</p>
+      <div className='intro'>
+        <h2 className='intro-title'>Chris' Blog.</h2>
+        <p className='intro-sub' >Thoughts, ideas, insights, rambles, and that kind of thing.</p>
+        <p className='intro-text' >This blog was made using React for the <a href='https://github.com/chrisnotthere/blog-client' target='blank' >frontend</a> and Express on the <a href='https://github.com/chrisnotthere/blog-api' target='blank' >back</a> (API). Read <a href='https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/blog-api' target='blank' >here</a> for more info.</p>
+        
+      </div>
+
       {isLoading ? (
         <>
           <h1>Loading...</h1>
@@ -41,8 +46,8 @@ function Home() {
               <div className='blogCard'>
                 <img src={post.img} alt={post.title}></img>
                 <div className='card-bottom'>
-                  <h2>{post.title}</h2>
-                  <p>Posted: {moment(post.date).format("MMM Do YYYY")}</p>
+                  <h2 className='post-title' >{post.title}</h2>
+                  <p>{moment(post.date).format("MMM Do YYYY")}</p>
                   <p>Comments: {post.comments.length}</p>
                 </div>
               </div>
