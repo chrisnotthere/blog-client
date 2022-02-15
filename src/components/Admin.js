@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -23,6 +24,7 @@ function Admin() {
           //save to token to local storage
           localStorage.setItem("SavedToken", 'Bearer ' + json.token);
           navigate("/blog-client/admin/dashboard");
+          location.reload();
         } 
       })
       .then(() => {

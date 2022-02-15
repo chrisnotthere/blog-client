@@ -1,17 +1,12 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import logo from '../../src/logo.svg';
 import { Link } from 'react-router-dom';
+import './styles/home.css'
 
 function Home() {
-  //const token = localStorage.getItem('SavedToken')
-  //console.log('token: ', token);
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
+  var moment = require('moment');
 
   //get data from blog-api
   React.useEffect(() => {
@@ -37,15 +32,19 @@ function Home() {
         <>
           <h1>Loading...</h1>
           <img src={logo} className="App-logo" alt="logo" />
+          <p>try refreshing if nothing happens</p>
         </>
       ) : (
         <div className='cardGrid'>
           {data.map((post) => (
-            <Link to={`/blog-client/blog/${post._id}`}>
-              <div key={post._id} className='blogCard'>
-                <img src={`../../images/${post.img}`} alt={post.title}></img>
-                <h2>{post.title}</h2>
-                <p>Posted: {post.date}</p>
+            <Link to={`/blog-client/blog/${post._id}`} key={post._id} >
+              <div className='blogCard'>
+                <img src={post.img} alt={post.title}></img>
+                <div className='card-bottom'>
+                  <h2>{post.title}</h2>
+                  <p>Posted: {moment(post.date).format("MMM Do YYYY")}</p>
+                  <p>Comments: {post.comments.length}</p>
+                </div>
               </div>
             </Link>
           ))}

@@ -1,17 +1,13 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import logo from '../../src/logo.svg';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 
 function AdminDashboard() {
   const token = localStorage.getItem('SavedToken')
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
+  var moment = require('moment');
 
   //get data from blog-api
   React.useEffect(() => {
@@ -43,8 +39,7 @@ function AdminDashboard() {
       <h2>Admin Dashboard</h2>
       <p>You are logged in as an admin.You may create, read, update, and delete blogs.</p>
       <Link to='/blog-client/admin/create'>
-        {/* <Button style={{ backgroundColor: 'green' }} onClick={() => window.location.replace('/blog-client/admin/create')} color="inherit">Create new blog</Button> */}
-        <Button style={{ backgroundColor: 'green' }} color="inherit">Create new blog</Button>
+        <Button style={{ backgroundColor: 'green', color: 'white' }} >Create new blog</Button>
       </Link>
       <hr />
       <p>Current blogs</p>
@@ -53,15 +48,16 @@ function AdminDashboard() {
         <>
           <h1>Loading...</h1>
           <img src={logo} className="App-logo" alt="logo" />
+          <p>try refreshing if nothing happens</p>
         </>
       ) : (
         <div className='cardGrid'>
           {data.map((post) => (
-            <Link to={`/blog-client/admin/edit/${post._id}`}>
-              <div key={post._id} className='blogCard'>
-                <img src={`../../images/${post.img}`} alt={post.title}></img>
+            <Link to={`/blog-client/admin/edit/${post._id}`} key={post._id} >
+              <div className='blogCard'>
+                <img src={post.img} alt={post.title}></img>
                 <h2>{post.title}</h2>
-                <p>Posted: {post.date}</p>
+                <p>Posted: {moment(post.date).format("MMM Do YYYY")}</p>
               </div>
             </Link>
           ))}

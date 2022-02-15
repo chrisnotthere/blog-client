@@ -1,5 +1,5 @@
 body {
-  background-color: #404e68;
+  background-color: #586988;
   color: white;
 }
 
@@ -18,38 +18,7 @@ body {
 }
 
 .container {
-  padding: 6rem 15vw;
-}
-
-.cardGrid {
-  display: flex;
-  flex-wrap: wrap;
-  /* align-content: center; */
-  align-items: center;
-  justify-content: center;
-}
-
-.blogCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(123, 146, 138);
-  padding: 0.5rem;
-  margin: 0.5rem;
-  color: black;
-  border-radius: 25% / 30%;
-  transition: ease-in 0.2s;
-}
-
-.blogCard:hover {
-  background-color: rgb(143, 170, 161);
-  color: rgb(22, 22, 22);
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.1);
-}
-
-.blogCard img{
-  max-width: 350px;
-  border-radius: 60% / 90%;
+  padding: 6rem 8vw;
 }
 
 input, textarea {

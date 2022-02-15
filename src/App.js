@@ -1,4 +1,5 @@
 import './App.css';
+import './components/styles/reset.css'
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Blog from './components/Blog';

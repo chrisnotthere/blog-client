@@ -1,0 +1,32 @@
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.blogCard {
+  background-color: rgb(123, 146, 138);
+  margin: 0.5rem;
+  color: black;
+  transition: ease-in 0.2s;
+  width: 25rem;
+  height: 25rem;
+}
+
+.blogCard:hover {
+  background-color: rgb(143, 170, 161);
+  color: rgb(22, 22, 22);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.1);
+}
+
+.blogCard img {
+  object-fit: cover;
+  width: 100%;
+  height: 16rem;
+}
+
+.card-bottom {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}

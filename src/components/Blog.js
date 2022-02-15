@@ -9,6 +9,7 @@ function Blog() {
   const [username, setUsername] = React.useState('');
   const [content, setContent] = React.useState('');
   const [commented, setCommented] = React.useState('');
+  var moment = require('moment');
 
   let { id } = useParams();
 
@@ -20,7 +21,7 @@ function Blog() {
       .then((json) => {
         setData(json['result']);
         setCommented('');
-        })
+      })
       .catch((error) => console.log(error));
   }, [commented]);
 
@@ -52,12 +53,12 @@ function Blog() {
         <>
           <h1>Loading...</h1>
           <img src={logo} className='App-logo' alt='logo' />
+          <p>try refreshing if nothing happens</p>
         </>
       ) : (
         <div key={data._id}>
           <h1>{data.title}</h1>
           <p>{data.content}</p>
-          {/* <p>by: {data.author}</p> */}
           <p>Posted: {data.date}</p>
           <hr></hr>
 
@@ -79,7 +80,7 @@ function Blog() {
                 required
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-               />
+              />
             </div>
             <button type='submit' className='mui-btn mui-btn--raised'>Submit</button>
           </form>
@@ -89,8 +90,8 @@ function Blog() {
             <div key={comment._id}>
               <p><b>{comment.username}</b></p>
               <p>{comment.content}</p>
-              <i>posted: {comment.date}</i>
-              <hr/>
+              <i>posted: {moment(comment.date).format("MMM Do YYYY")}</i>
+              <hr />
             </div>
           ))}
         </div>
