@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 function Admin() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ function Admin() {
         if (json.message === 'Auth Passed'){
           //save to token to local storage
           localStorage.setItem("SavedToken", 'Bearer ' + json.token);
-          Navigate("/blog-client/admin/dashboard");
+          navigate("/blog-client/admin/dashboard");
         } 
       })
       .then(() => {

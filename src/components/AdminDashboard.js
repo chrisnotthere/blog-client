@@ -42,10 +42,13 @@ function AdminDashboard() {
     <div className='container'>
       <h2>Admin Dashboard</h2>
       <p>You are logged in as an admin.You may create, read, update, and delete blogs.</p>
-      <Button style={{ backgroundColor: 'green' }} onClick={() => window.location.replace('/blog-client/admin/create')} color="inherit">Create new blog</Button>
-      <hr/>
+      <Link to='/blog-client/admin/create'>
+        {/* <Button style={{ backgroundColor: 'green' }} onClick={() => window.location.replace('/blog-client/admin/create')} color="inherit">Create new blog</Button> */}
+        <Button style={{ backgroundColor: 'green' }} color="inherit">Create new blog</Button>
+      </Link>
+      <hr />
       <p>Current blogs</p>
-      <hr/>
+      <hr />
       {isLoading ? (
         <>
           <h1>Loading...</h1>

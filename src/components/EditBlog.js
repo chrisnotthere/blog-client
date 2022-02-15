@@ -43,7 +43,7 @@ function EditBlog() {
       body: JSON.stringify(postBlog),
     }).then(() => {
       console.log('Blog updated!!');
-      navigate(`/blog/${id}`);
+      navigate(`blog-client/blog/${id}`);
     })
   }
 

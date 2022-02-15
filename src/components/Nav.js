@@ -41,7 +41,7 @@ function Nav() {
               </>
               :
               <Link to='/blog-client/admin'>
-                <Button color="inherit">Admin</Button>
+                <Button color="inherit">Login</Button>
               </Link>
 
             }
