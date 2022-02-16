@@ -37,12 +37,10 @@ function AdminDashboard() {
   return (
     <div className='container'>
       <h2>Admin Dashboard</h2>
-      <p>You are logged in as an admin.You may create, read, update, and delete blogs.</p>
+      <p>You are logged in as an admin. You may create, read, update, and delete blogs.</p>
       <Link to='/blog-client/admin/create'>
         <Button style={{ backgroundColor: 'green', color: 'white' }} >Create new blog</Button>
       </Link>
-      <hr />
-      <p>Current blogs</p>
       <hr />
       {isLoading ? (
         <>
@@ -56,8 +54,11 @@ function AdminDashboard() {
             <Link to={`/blog-client/admin/edit/${post._id}`} key={post._id} >
               <div className='blogCard'>
                 <img src={post.img} alt={post.title}></img>
-                <h2 className='post-title' >{post.title}</h2>
-                <p>{moment(post.date).format("MMM Do YYYY")}</p>
+                <div className='card-bottom'>
+                  <h2 className='post-title' >{post.title}</h2>
+                  <p>{moment(post.date).format("MMM Do YYYY")}</p>
+                  <p>Comments: {post.comments.length}</p>
+                </div>
               </div>
             </Link>
           ))}
