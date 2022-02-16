@@ -23,8 +23,9 @@ function Admin() {
         if (json.message === 'Auth Passed'){
           //save to token to local storage
           localStorage.setItem("SavedToken", 'Bearer ' + json.token);
-          navigate("/blog-client/admin/dashboard");
-          location.reload();
+          window.location.replace('/blog-client/admin/dashboard')
+          // navigate("/blog-client/admin/dashboard");
+          // location.reload();
         } 
       })
       .then(() => {
