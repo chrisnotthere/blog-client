@@ -32,8 +32,8 @@
   margin: 2.5rem;
   color: black;
   transition: ease-in 0.2s;
-  width: 25rem;
-  height: 25rem;
+  max-width: 25rem;
+  /* height: 25rem; */
 }
 
 .blogCard:hover {
@@ -43,7 +43,7 @@
 }
 
 .blogCard img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 16rem;
 }
